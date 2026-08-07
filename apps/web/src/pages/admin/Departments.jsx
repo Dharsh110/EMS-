@@ -99,8 +99,8 @@ export default function AdminDepartments() {
             await deleteDepartment(deleteTarget._id).unwrap();
             toast.success('Department removed');
         }
-        catch {
-            toast.error('Failed to delete');
+        catch (err) {
+            toast.error(err?.data?.message || 'Failed to delete');
         }
         setDeleteTarget(null);
     };

@@ -129,8 +129,8 @@ export default function AdminEmployees() {
             await deleteEmployee(deleteTarget.id).unwrap();
             toast.success('Employee deactivated');
         }
-        catch {
-            toast.error('Failed to delete employee');
+        catch (err) {
+            toast.error(err?.data?.message || 'Failed to delete employee');
         }
         setDeleteTarget(null);
     };
